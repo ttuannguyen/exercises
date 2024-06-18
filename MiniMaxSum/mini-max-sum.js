@@ -11,7 +11,10 @@ function miniMaxSum(arr) {
     
     // using bubble sort to sort the array
     for (let i = 0; i < arr.length; i++) {
-        for (let j = 0; j < arr.length; j++) {
+        for (let j = 0; j < arr.length - 1 - i; j++) {
+            // Changed the condition from: j < arr.length
+            // We don't see an immediate error because arr[j + 1] would just return undefined when j is at the last index
+            // but that is not correct logic and can lead to subtle bugs
             if (arr[j] >= arr[j+1]) {
                 let temp = arr[j];
                 arr[j] = arr[j+1];
