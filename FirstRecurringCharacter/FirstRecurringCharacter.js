@@ -9,7 +9,8 @@
 //It should return undefined
 
 // Method 1: Using hash table
-function firstRecurringCharacter(input) {
+// Time complexity: O(n) (faster); space complexity: O(n) (downside)
+function firstRecurringCharacter2(input) {
     let map = {};
     // basic for turning an array into a hash table: use a for loop, assign a key and value at each iteration
     for (let i = 0; i < input.length; i++) {
@@ -21,19 +22,46 @@ function firstRecurringCharacter(input) {
             // Logic: if the key already exists in the hash table, just return that key (i.e. the answer)
             return input[i];
         } else {
-            map[input[i]] = i; // assigning task: key for building a hash table
+            map[input[i]] = i; // this assigning task is the key for building a hash table
         }
         console.log(map);
     }
     return(undefined);
 }
-// Time complexity: O(n) (faster); space complexity: O(n) (downside)
 
-// Method 2: Using a for loop
+// Method 2: Using a nested for loop
+// Time complexity: O(n^2)
+function firstRecurringCharacte3(input) {
 
-const input = [2,5,1,2,3,5,1,2,4];
+    for (let i = 0; i < input.length; i++) {
+        for (let j = i + 1; j < input.length; j++) {
+            // console.log(input[i], input[j])
+            if (input[i] === input[j]) {
+                return input[i];
+            }
+        }
+    }
+    return undefined;
+}
 
-firstRecurringCharacter(input);
+const input = [2,1,1,2,3,5,1,2,4];
+const answer = firstRecurringCharacter(input);
+console.log(answer);
+
+// Method 3: Using a Set
+
+function firstRecurringCharacter(input) {
+    const seen = new Set();
+    
+    for (const char of input) {
+        if (seen.has(char)) {
+            return char;
+        }
+        seen.add(char);
+    }
+    
+    return undefined;
+}
 
 
 
