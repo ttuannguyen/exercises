@@ -1,3 +1,5 @@
+// Objective: merge the 2 sorted arrays below:
+
 const left = [ 1, 2, 5, 6, 44, 99 ];
 const right = [ 0, 4, 63, 87, 283 ];
 
@@ -15,15 +17,19 @@ while (i < left.length && j < right.length) {
     }
 }
 
+// If there are remaining elements in the left array
 if (i < left.length) {
     result.push(left[i]);
     j++;
 }
 
+// If there are remaining elements in the left array
 if (j < right.length) {
     result.push(right[j]);
     j++;
 }
+
+console.log(result);
 
 
 // Note: In this case it is very in effective to use the nested for loop; 

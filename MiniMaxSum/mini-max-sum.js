@@ -8,33 +8,48 @@
 
 function miniMaxSum(arr) {
     // Write your code here
+
     
-    // using bubble sort to sort the array
-    for (let i = 0; i < arr.length; i++) {
-        for (let j = 0; j < arr.length - 1 - i; j++) {
-            // Changed the condition from: j < arr.length
-            // We don't see an immediate error because arr[j + 1] would just return undefined when j is at the last index
-            // but that is not correct logic and can lead to subtle bugs
-            if (arr[j] >= arr[j+1]) {
-                let temp = arr[j];
-                arr[j] = arr[j+1];
-                arr[j+1] = temp;
-            }
-            // console.log(i, j, arr.length - 1 - i, arr) // to visualize
-        }
-    }
+    // METHOD 1: Use JS built-in methods for JS: reduce, max, min
+    const initialValue = 0;
+    const sum = arr.reduce((accumulator, currentValue) => accumulator + currentValue, initialValue)
     
-    let min = 0;
-    let max = 0;
+    const maxValue = Math.max(...arr);
+    const minValue = Math.min(...arr);
+
+    const min = sum - maxValue;
+    const max = sum - minValue;
     
-    for (let i = 0; i < arr.length-1 ; i++) {
-        min += arr[i] 
-    }
+
+
+    // METHOD 2: Use bubble sort to sort the array, then use for loop to calc max and min
+    // for (let i = 0; i < arr.length; i++) {
+    //     for (let j = 0; j < arr.length - 1 - i; j++) {
+    //         // console.log(arr[i], arr[j]) // to visualize
+    //         // Changed the condition from: j < arr.length
+    //         // We don't see an immediate error because arr[j + 1] would just return undefined when j is at the last index
+    //         // but that is not correct logic and can lead to subtle bugs
+    //         if (arr[j] >= arr[j+1]) {
+    //             let temp = arr[j];
+    //             arr[j] = arr[j+1];
+    //             arr[j+1] = temp;
+    //         }
+    //     }
+    // }
     
-    for (let i = 1; i < arr.length; i++) {
-        max += arr[i] 
-    }
-    // console.log(min, max);
+    // let min = 0;
+    // let max = 0;
+    
+    // for (let i = 0; i < arr.length-1 ; i++) {
+    //     min += arr[i] 
+    // }
+    
+    // for (let i = 1; i < arr.length; i++) {
+    //     max += arr[i] 
+    // }
+    
+    
+    console.log(min, max);
 
 }
 
