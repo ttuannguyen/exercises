@@ -20,10 +20,9 @@ function miniMaxSum(arr) {
                 arr[j] = arr[j+1];
                 arr[j+1] = temp;
             }
+            // console.log(i, j, arr.length - 1 - i, arr) // to visualize
         }
     }
-
-    console.log(arr);
     
     let min = 0;
     let max = 0;
@@ -35,13 +34,12 @@ function miniMaxSum(arr) {
     for (let i = 1; i < arr.length; i++) {
         max += arr[i] 
     }
-    
-    console.log(min, max);
+    // console.log(min, max);
 
 }
 
 function main() {
-    const arr = [7, 69, 2, 221, 8974];
+    const arr = [7, 69, 2, 8974, 221];
     miniMaxSum(arr);
 }
 
