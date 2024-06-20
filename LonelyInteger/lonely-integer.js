@@ -11,14 +11,19 @@ function lonelyinteger(a) {
     let map = {};
     for (let i = 0; i < a.length; i++) {
         if(map[a[i]]) {
-            map[a[i]]++; // unpack this logic
+            map[a[i]]++; // if this key already exists, increment the value by one
         } else {
-            map[a[i]] = 1;
+            map[a[i]] = 1; // if not, assign 1 to the value of the new key
         }
     }
-    console.log(map);
 
-    
+    for (let key in map) {
+        if(map[key] === 1) {
+            return parseInt(key);
+            // return key; // this will also work but since we're explicitly asked to return an integer, using partseInt in the above is a stronger solution
+        }
+    }
+
     // // Method: For loop approach; flawed
     // for (let i = 0; i < a.length; i++) {
     //     let counter = 0;
