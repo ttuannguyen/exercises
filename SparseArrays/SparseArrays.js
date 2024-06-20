@@ -1,5 +1,5 @@
-const strings = ['ab', 'ab', 'abc'];
-const queries = ['ab', 'abc', 'bc'];
+const strings = ['aba', 'baba', 'aba', 'xzxb'];
+const queries = ['aba', 'xzxb', 'ab'];
 
 function matchingStrings(strings, queries) {
 
@@ -7,17 +7,19 @@ function matchingStrings(strings, queries) {
     let result = [];
 
     for (let i = 0; i < queries.length; i++) {
-        if (!map[queries[i]]) {
-            map[queries[i]] = 0;
-        }
+        
+        map[queries[i]] = 0;
 
         for(let j = 0; j < strings.length; j++) {
             if (queries[i] === strings[j]) {
                 map[queries[i]]++;
             }
         }
-    
+
+        result.push(map[queries[i]]);
     }
+
+    console.log(result);
 
     // for (let key in map) {
     //     for (let i = 0; i < strings.length; i++) {
@@ -28,7 +30,6 @@ function matchingStrings(strings, queries) {
     //     result.push(map[key]);
     // }
 
-    // console.log(result);
     return result;
     
 }
