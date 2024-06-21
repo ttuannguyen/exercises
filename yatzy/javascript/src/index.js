@@ -79,7 +79,6 @@ module.exports = class Yatzy {
         // using a hash table to tally up score
         // for each iteration, if the die is a certain number, we invoke the callback function to tally up the count for that number
 
-
         // let scoreMapping;
         // fix: initialize scoreMapping outside of the for each loop
         let scoreMapping = {};
@@ -89,21 +88,25 @@ module.exports = class Yatzy {
                 scoreMapping[1] = this.ones()
             }
             if (die == 2) {
-                scoreMapping[1] = this.twos()
+                // fix: originannly, the scoreMapping object only points to key 1
+                // thus, corrected the key of each die accordingly
+                scoreMapping[2] = this.twos()
             }
             if (die == 3) {
-                scoreMapping[1] = this.threes()
+                scoreMapping[3] = this.threes()
             }
             if (die == 4) {
-                scoreMapping[1] = this.fours()
+                scoreMapping[4] = this.fours()
             }
             if (die == 5) {
-                scoreMapping[1] = this.fives()
+                scoreMapping[5] = this.fives()
             }
             if (die == 6) {
-                scoreMapping[1] = this.sixes()
+                scoreMapping[6] = this.sixes()
             }
         });
+
+        console.log(scoreMapping);
 
         let highestScore;
         Object.entries(scoreMapping).forEach(entry => {
