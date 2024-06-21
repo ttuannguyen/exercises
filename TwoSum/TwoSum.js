@@ -9,12 +9,12 @@ const twoSum = (nums, target) => {
     // for (let i = 0; i < nums.length; i++) {
     //     for (let j = i + 1; j < nums.length; j++) {
     //         if (nums[i] + nums[j] === target) {
-    //             result.push(i);
-    //             result.push(j);
+    //             result.push(i, j);
     //         }
     //     }
-    
-    
+    // }
+    // return result;
+
     // Approach 2: hash table
     // O(n)
     const map = {};
@@ -22,18 +22,12 @@ const twoSum = (nums, target) => {
 
     for (let i = 0; i < nums.length; i++) {
         const complement = target - nums[i];
-        if (complement in map) {   
+        if (map.hasOwnProperty(complement)) {   
             result.push(map[complement], i);
             return result;
         } else {
             map[nums[i]] = i;
         }
-        // if (map.hasOwnProperty(complement)) {   
-        //     result.push(map[complement], i);
-        //     return result;
-        // } else {
-        //     map[nums[i]] = i;
-        // }
     }
 
     // Reference: hasOwnProperty; alteratively, in-operator, i.e. "complement in map"
@@ -49,7 +43,6 @@ const twoSum = (nums, target) => {
     //     numIndices.set(nums[i], i);
     // }
     // return [];
-
 }
 
 let answer = twoSum(nums, target);
