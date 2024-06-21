@@ -121,3 +121,19 @@ module.exports = class Yatzy {
         return highestScore;
     }
 }
+
+// Testing in the same file:
+// Note: we'd need to remove "module.exports =" in the above first
+// const testCalculateScore = () => {
+//     const game = new Yatzy();
+
+//     // Set dummy data
+//     game.play([1, 2, 3, 4, 5]);
+//     console.log("Dice values:", game.dice);
+
+//     // Calculate and print the score
+//     const score = game.calculateScore();
+//     console.log("Calculated Score:", score);
+// };
+
+// testCalculateScore();
