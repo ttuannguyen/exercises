@@ -58,7 +58,7 @@ module.exports = class Yatzy {
     fives() {
         let count = 0;
         this.dice.forEach(die => {
-            if(die == 4) {
+            if(die == 5) {
                 count = count + 1;
             }
         })
@@ -76,11 +76,11 @@ module.exports = class Yatzy {
     }
 
     calculateScore() {
-        // using a hash table to tally up score
+        // using an to tally up score
         // for each iteration, if the die is a certain number, we invoke the callback function to tally up the count for that number
 
         // let scoreMapping;
-        // fix: initialize scoreMapping outside of the for each loop
+        // fixed bug #1: initialize scoreMapping outside of the for each loop
         let scoreMapping = {};
         this.dice.forEach(die => {
             // scoreMapping = {} // Issue: it resets to an empty object at each iteration
@@ -88,7 +88,7 @@ module.exports = class Yatzy {
                 scoreMapping[1] = this.ones()
             }
             if (die == 2) {
-                // fix: originannly, the scoreMapping object only points to key 1
+                // fixed bug #2: originally, the scoreMapping object only points to key 1
                 // thus, corrected the key of each die accordingly
                 scoreMapping[2] = this.twos()
             }
@@ -105,12 +105,13 @@ module.exports = class Yatzy {
                 scoreMapping[6] = this.sixes()
             }
         });
-
         console.log(scoreMapping);
 
-        let highestScore;
+        // let highestScore;
+        let highestScore = 0;
+        
         Object.entries(scoreMapping).forEach(entry => {
-            highestScore = 0;
+            // highestScore = 0; // Issue: resetting the score to 0 at each iteration
             const [value, number] = entry;
             if((value * number) > highestScore && number > 1) {
                 highestScore = value * number;
