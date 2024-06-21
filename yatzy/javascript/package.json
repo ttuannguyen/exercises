@@ -1,0 +1,14 @@
+{
+  "name": "yatzy",
+  "version": "1.0.0",
+  "description": "The game Yatzy",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "mocha --recursive --exit"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^9.2.0"
+  }
+}
