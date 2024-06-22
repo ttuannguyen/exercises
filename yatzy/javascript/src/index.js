@@ -1,15 +1,22 @@
 module.exports = class Yatzy {
     constructor() {
         this.dice = []
+        this.times = 6;
     }
 
     roll() {
-        return Math.floor(Math.random() * (6-1+1) + 1);
+        return Math.floor(Math.random() * (this.times-1+1) + 1);
+        // return Math.floor(Math.random() * (6-1+1) + 1);
     }
 
     play(values = []) {
         if(values.length == 0) {
-            this.dice = [this.roll(), this.roll(), this.roll(), this.roll(), this.roll()];
+            
+            for (let i = 0; i < this.times; i++) {
+                this.dice.push(this.roll());
+            }
+
+            // this.dice = [this.roll(), this.roll(), this.roll(), this.roll(), this.roll()];
         } else {
             this.dice = values;
         }
