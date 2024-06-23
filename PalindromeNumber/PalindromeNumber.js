@@ -5,6 +5,7 @@ const isPalindromeNumber = (num) => {
     const string = num.toString();
     let newString = '';
 
+    // Approach: reverse for loop
     for (let i = string.length-1; i >= 0; i--) {
         newString += string[i];
     }
