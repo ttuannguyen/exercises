@@ -6,18 +6,31 @@ module.exports = class Yatzy {
     // Optimizing/scalability exercise: 
     // What if we'd like to change the number of sides of the dice and number of rolls?
     
-    // Optimization 4:
-    // We can make the maxinum # of sides a variable so we can scale it up to anything # of sides we want 
-    roll(maximum) {
+    // Optimization 3:
+    // We can make the maxinum # of sides a variable so we can scale it up to any # of sides we want 
+    roll(maximum = 6) {
         return Math.floor(Math.random() * (maximum) + 1);
     }
 
-    play(values = []) {
+    // Optimization 4: 
+    // We can use a loop to dynamically build the dice array by invoking it x number of times (which we can pass in as a variable)
+    play(values = [], maximum = 6, rolls = 5) {
         if(values.length == 0) {
-            this.dice = [this.roll(), this.roll(), this.roll(), this.roll(), this.roll()];
+            let i = 0;
+            while (i < rolls) {
+                this.dice.push(this.roll(maximum));
+                i++;
+            }
         } else {
             this.dice = values;
-        }
+        }        
+
+        console.log(this.dice);
+        // if(values.length == 0) {
+        //     this.dice = [this.roll(), this.roll(), this.roll(), this.roll(), this.roll()];
+        // } else {
+        //     this.dice = values;
+        // }
     }
 
     /* Original code:
@@ -38,7 +51,7 @@ module.exports = class Yatzy {
     // Optimization 1:
     // Since each count function implements a for loop to tally up the count of a die, what can we do do make it more DRY?
     // Solution: implement a count function for code reusability
-    // With the optimization 2 in place, the above individual tally functions can be discarded
+    // With optimization 2 in place, the above below tally functions (i.e. one(), two(), etc) can be discarded
 
     count(number) {
         let count = 0;
