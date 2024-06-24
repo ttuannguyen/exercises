@@ -1,18 +1,20 @@
 module.exports = class Yatzy {
     constructor() {
         this.dice = []
-        this.times = 6;
     }
 
+    // Optimizing/scalability exercise: 
+    // What if we'd like to change the number of sides of the dice and number of rolls?
+    
     roll() {
-        return Math.floor(Math.random() * (this.times-1+1) + 1);
-        // return Math.floor(Math.random() * (6-1+1) + 1);
+        return Math.floor(Math.random() * (6-1+1) + 1);
     }
 
     play(values = []) {
         if(values.length == 0) {
+            let times = 6;
             
-            for (let i = 0; i < this.times; i++) {
+            for (let i = 0; i < times; i++) {
                 this.dice.push(this.roll());
             }
 
@@ -20,71 +22,124 @@ module.exports = class Yatzy {
         } else {
             this.dice = values;
         }
+
+    }
+
+    /* Original code:
+    roll() {
+        return Math.floor(Math.random() * (6-1+1) + 1);
+    }
+
+    play(values = []) {
+        if(values.length == 0) {
+            this.dice = [this.roll(), this.roll(), this.roll(), this.roll(), this.roll()];
+        } else {
+            this.dice = values;
+        }
+    }
+
+    */
+
+    // Optimizing exercise 1:
+    // Since each count function implements a for loop to tally up the count of a die, what can we do do make it more DRY?
+    // Solution: implement a count function for code reusability
+
+    count(number) {
+        let count = 0;
+        this.dice.forEach(die => {
+            if(die === number) {
+                count++;
+            }
+        })
+        return count;
     }
 
     ones() {
-        let count = 0;
-        this.dice.forEach(die => {
-            if(die == 1) {
-                count = count + 1;
-            }
-        });
-        return count;
+        return this.count(1);
     }
 
     twos() {
-        let count = 0;
-        this.dice.forEach(die => {
-            if(die == 2) {
-                count = count + 1;
-            }
-        })
-        return count;
+        return this.count(2);
     }
 
     threes() {
-        let count = 0;
-        this.dice.forEach(die => {
-            if(die == 3) {
-                count = count + 1;
-            }
-        })
-        return count;
+        return this.count(3);
     }
 
     fours() {
-        let count = 0;
-        this.dice.forEach(die => {
-            if(die == 4) {
-                count = count + 1;
-            }
-        })
-        return count;
+        return this.count(4);
     }
 
     fives() {
-        let count = 0;
-        this.dice.forEach(die => {
-            if(die == 5) {
-                count = count + 1;
-            }
-        })
-        return count;
+        return this.count(5);
     }
 
     sixes() {
-        let count = 0;
-        this.dice.forEach(die => {
-            if(die == 6) {
-                count = count + 1;
-            }
-        })
-        return count;
+        return this.count(6);
     }
 
+    // ones() {
+    //     let count = 0;
+    //     this.dice.forEach(die => {
+    //         if(die == 1) {
+    //             count = count + 1;
+    //         }
+    //     });
+    //     return count;
+    // }
+
+    // twos() {
+    //     let count = 0;
+    //     this.dice.forEach(die => {
+    //         if(die == 2) {
+    //             count = count + 1;
+    //         }
+    //     })
+    //     return count;
+    // }
+
+    // threes() {
+    //     let count = 0;
+    //     this.dice.forEach(die => {
+    //         if(die == 3) {
+    //             count = count + 1;
+    //         }
+    //     })
+    //     return count;
+    // }
+
+    // fours() {
+    //     let count = 0;
+    //     this.dice.forEach(die => {
+    //         if(die == 4) {
+    //             count = count + 1;
+    //         }
+    //     })
+    //     return count;
+    // }
+
+    // fives() {
+    //     let count = 0;
+    //     this.dice.forEach(die => {
+    //         if(die == 5) {
+    //             count = count + 1;
+    //         }
+    //     })
+    //     return count;
+    // }
+
+    // sixes() {
+    //     let count = 0;
+    //     this.dice.forEach(die => {
+    //         if(die == 6) {
+    //             count = count + 1;
+    //         }
+    //     })
+    //     return count;
+    // }
+
+    
     calculateScore() {
-        // using an to tally up score
-        // for each iteration, if the die is a certain number, we invoke the callback function to tally up the count for that number
 
         // let scoreMapping;
         // fixed bug #1: initialize scoreMapping outside of the for each loop
@@ -113,6 +168,39 @@ module.exports = class Yatzy {
             }
         });
         console.log(scoreMapping);
+        
+    
+    // calculateScore() {
+    //     // using an to tally up score
+    //     // for each iteration, if the die is a certain number, we invoke the callback function to tally up the count for that number
+
+    //     // let scoreMapping;
+    //     // fixed bug #1: initialize scoreMapping outside of the for each loop
+    //     let scoreMapping = {};
+    //     this.dice.forEach(die => {
+    //         // scoreMapping = {} // Issue: it resets to an empty object at each iteration
+    //         if (die == 1) {
+    //             scoreMapping[1] = this.ones()
+    //         }
+    //         if (die == 2) {
+    //             // fixed bug #2: originally, the scoreMapping object only points to key 1
+    //             // thus, corrected the key of each die accordingly
+    //             scoreMapping[2] = this.twos()
+    //         }
+    //         if (die == 3) {
+    //             scoreMapping[3] = this.threes()
+    //         }
+    //         if (die == 4) {
+    //             scoreMapping[4] = this.fours()
+    //         }
+    //         if (die == 5) {
+    //             scoreMapping[5] = this.fives()
+    //         }
+    //         if (die == 6) {
+    //             scoreMapping[6] = this.sixes()
+    //         }
+    //     });
+    //     console.log(scoreMapping);
 
         // let highestScore;
         let highestScore = 0;
