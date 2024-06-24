@@ -6,23 +6,18 @@ module.exports = class Yatzy {
     // Optimizing/scalability exercise: 
     // What if we'd like to change the number of sides of the dice and number of rolls?
     
-    roll() {
-        return Math.floor(Math.random() * (6-1+1) + 1);
+    // Optimization 4:
+    // We can make the maxinum # of sides a variable so we can scale it up to anything # of sides we want 
+    roll(maximum) {
+        return Math.floor(Math.random() * (maximum) + 1);
     }
 
     play(values = []) {
         if(values.length == 0) {
-            let times = 6;
-            
-            for (let i = 0; i < times; i++) {
-                this.dice.push(this.roll());
-            }
-
-            // this.dice = [this.roll(), this.roll(), this.roll(), this.roll(), this.roll()];
+            this.dice = [this.roll(), this.roll(), this.roll(), this.roll(), this.roll()];
         } else {
             this.dice = values;
         }
-
     }
 
     /* Original code:
@@ -34,7 +29,7 @@ module.exports = class Yatzy {
         if(values.length == 0) {
             this.dice = [this.roll(), this.roll(), this.roll(), this.roll(), this.roll()];
         } else {
-            this.dice = values;
+            this.dice = values; 
         }
     }
 
@@ -147,7 +142,7 @@ module.exports = class Yatzy {
         this.dice.forEach(die => {
             scoreMapping[die] = this.count(die);
         });
-        console.log(scoreMapping);
+        // console.log(scoreMapping);
         
     
     // calculateScore() {
