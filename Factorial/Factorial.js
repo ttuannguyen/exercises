@@ -5,6 +5,7 @@
 
 const findFactorialRecursive = (number) => {
     
+    let answer = 0;
     if (number === 1) {
         return 1;
     }
@@ -13,10 +14,14 @@ const findFactorialRecursive = (number) => {
         return 0;
     }
 
-
-
+    if (number > 1) {
+        answer += number * findFactorialRecursive(number-1);
+        number--;
+    }
 
     return answer;
+
+
 }
 
 const findFactorialIterative = (number) => {
@@ -24,6 +29,6 @@ const findFactorialIterative = (number) => {
     return answer;
 }
 
-const number = 1;
-let answer = findFactorialRecursive();
+const number = 5;
+let answer = findFactorialRecursive(number);
 console.log(answer);
