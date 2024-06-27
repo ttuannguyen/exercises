@@ -17,7 +17,7 @@ const evaluateKeyStrokes2 = (input) => {
     return result.join('');
 }
 
-// Solution 1: while loop approach
+// Solution 1: loop approach
 // Initialize var i and a 'skip'
 // In a reverse loop fashion, iterate backward
 // Every time we encounter '<', we're going to increase the skip count, then manually decrease i to go to the next character (convention for a while loop)
@@ -29,21 +29,34 @@ const evaluateKeyStrokes = (input) => {
     let result = '';
     let skip = 0;
 
-    // while loop approach
-    let i = input.length-1;
-    while (i >= 0) {
+    for (let i = input.length-1; i >= 0; i--) {
         if (input[i] === '<') {
             skip++;
         } else {
-            if (skip > 0) { 
-                // the idea is if there is a skip, we're not going to get to the "else" part below to add the new character and just go to the next iteration
-                skip--; 
+            if (skip > 0) {
+                skip--;
             } else {
                 result = input[i] + result;
             }
         }
-        i--;
     }
+
+    // // while loop approach
+    // let i = input.length-1;
+    // while (i >= 0) {
+    //     if (input[i] === '<') {
+    //         skip++;
+    //     } else {
+    //         if (skip > 0) { 
+    //             // the idea is if there is a skip, we're not going to get to the "else" part below to add the new character and just go to the next iteration
+    //             skip--; 
+    //         } else {
+    //             result = input[i] + result;
+    //         }
+    //     }
+    //     i--;
+    // }
+    
     return result;
 }
 
