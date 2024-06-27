@@ -27,7 +27,7 @@ const evaluateKeyStrokes2 = (input) => {
 
 const evaluateKeyStrokes = (input) => {
     let result = '';
-    let skip = 0;
+    let skip = 0; // key: the skip var serves as a conditional to do something or not
 
     for (let i = input.length-1; i >= 0; i--) {
         if (input[i] === '<') {
@@ -56,7 +56,7 @@ const evaluateKeyStrokes = (input) => {
     //     }
     //     i--;
     // }
-    
+
     return result;
 }
 
