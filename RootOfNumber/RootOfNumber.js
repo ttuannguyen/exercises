@@ -6,35 +6,35 @@ Approach:  Binary Search: The approach involves repeatedly narrowing down the in
 */
 
 function root(x, n) {
-    // // Edge cases:
-    // if (x === 0) return 0;
-    // if (x === 1) return 1;
+    // Edge cases:
+    if (x === 0) return 0;
+    if (x === 1) return 1;
 
-    // // Binary search set up
-    // let low = 0;
-    // let high = x;
-    // let mid;
+    // Binary search set up
+    let low = 0;
+    let high = x;
+    let mid;
 
-    // // Adjust the high bound for numbers less than 1
-    // if (x < 1) high = 1;
+    // Adjust the high bound for numbers less than 1
+    if (x < 1) high = 1;
 
-    // // Binary search loop
-    // // The method continues to adjust the bounds
-    // while (high - low > 0.001) {
-    //     mid = (low + high) / 2;
-    //     let midPow = Math.pow(mid, n); // The Math. pow() method returns the value of mid to the power of n
-    //     // We're raising mid to the power of n to see how it compares to x
+    // Binary search loop
+    // The method continues to adjust the bounds until the interval is sufficiently small, ensuring accuracy within the desired error margin
+    while (high - low > 0.001) {
+        mid = (low + high) / 2;
+        let midPow = Math.pow(mid, n); // The Math. pow() method returns the value of mid to the power of n
+        // We're raising mid to the power of n to see how it compares to x
 
-    //     // Adjusting the interval based on whether mid^n is greater than or less than x.
-    //     if (midPow > x) {
-    //         high = mid;
-    //     } else {
-    //         low = mid;
-    //     }
-    //     console.log(midPow, "high:", high, "low:", low)
-    // }
+        // Adjusting the interval based on whether mid^n is greater than or less than x.
+        if (midPow > x) {
+            high = mid;
+        } else {
+            low = mid;
+        }
+        console.log(midPow, "high:", high, "low:", low)
+    }
 
-    // return (low + high) / 2;
+    return (low + high) / 2;
 }
 
 // Time Complexity: The binary search method ensures that the range is halved in each iteration, making the time complexity O(log( 0.001max(x,1))). This is efficient for the given constraints.
