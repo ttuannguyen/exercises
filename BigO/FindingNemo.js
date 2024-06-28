@@ -68,3 +68,24 @@ function printAllNumbersThenAllPairSums(numbers) {
   // E.g.) O(x^2+3x+100+x/2) => O(x^2)
 
   // Note: worst one of all time O(n!)
+
+// SPACE COMPLEXITY
+function boooo(n) {
+    for (let i = 0; i < n; i++) {
+      console.log("booooo");
+    }
+  }
+  
+boooo([1,2,3,4]) // O(1)
+// We're only concerned with additional space, so we don't care about exisiting space for the input
+
+function arrayOfHiNTimes(n) {
+    var hiArray = []; // creating a new arr
+    for (let i = 0; i < n; i++) { // filling the new arr up with elements; each item is additional space in memory, i.e. nth time
+      hiArray[i] = "hi";
+    }
+    return hiArray;
+}
+  
+arrayOfHiNTimes(6); // O(n)
+  
