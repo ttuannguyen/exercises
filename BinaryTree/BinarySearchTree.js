@@ -32,6 +32,7 @@ class Node {
   tree.insert(1);
   tree.remove(170);
   JSON.stringify(traverse(tree.root));
+
   console.log(tree.lookup(20));
   //     9
   //  4     20
