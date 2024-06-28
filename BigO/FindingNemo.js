@@ -22,7 +22,7 @@ function findNemo2(array) {
 
 findNemo2(large) // O(n) --> linear time; as the # inputs increase, the # operations increases linearly
 
-// Another example:
+// Example #2:
 const boxes = [0,1,2,3,4,5];
 
 function logFirstTwoBoxes(boxes) {
@@ -32,3 +32,5 @@ function logFirstTwoBoxes(boxes) {
 
 logFirstTwoBoxes(boxes); // O(2) => round this down to just O(1)
 // very scalable; it doesn't matter how many elements we have, it's going to run the same
+
+// Example #3: Rule #3
