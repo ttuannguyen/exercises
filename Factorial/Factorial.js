@@ -37,7 +37,7 @@ let answer = findFactorialRecursive(number);
 console.log(answer);
 
 
-/* 
+/* Learning Notes:
 findFactorialRecursive(5)
 Returns 5 * findFactorialRecursive(4)
 Returns 4 * findFactorialRecursive(3)
@@ -50,5 +50,17 @@ findFactorialRecursive(2) returns 2 * 1 = 2.
 findFactorialRecursive(3) returns 3 * 2 = 6.
 findFactorialRecursive(4) returns 4 * 6 = 24.
 findFactorialRecursive(5) returns 5 * 24 = 120.
+
+Further visualization to aid understanding:
+findFactorialRecursive(5)
+=> 5 * findFactorialRecursive(4)
+=> 5 * (4 * findFactorialRecursive(3))
+=> 5 * (4 * (3 * findFactorialRecursive(2)))
+=> 5 * (4 * (3 * (2 * findFactorialRecursive(1))))
+=> 5 * (4 * (3 * (2 * 1)))
+=> 5 * (4 * (3 * 2))
+=> 5 * (4 * 6)
+=> 5 * 24
+=> 120
 
 */
