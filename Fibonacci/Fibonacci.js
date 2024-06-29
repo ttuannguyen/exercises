@@ -6,21 +6,21 @@
 // [0,1,1,2,3,5,8,13,21]
 
 const fibonacci1 = (n) => {
-    // if (n < 2) {
-    //     return n;
-    // }
+    // Edge case:
+    if (n < 2) {
+        return n;
+    }
     
-    // let current = 1;
-    // let previous = 0;
+    let current = 1;
+    let previous = 0;
 
-    // for (let i = 2; i <= n; i++) {
-    //     const temp = current + previous; 
-    //     previous = current;
-    //     current = temp; 
-    //     // console.log(i, previous, current);
-    // }
+    for (let i = 2; i <= n; i++) { // O(n)
+        const temp = current + previous; 
+        previous = current;
+        current = temp; 
+    }
 
-    // return current;
+    return current;
 
 }
 
