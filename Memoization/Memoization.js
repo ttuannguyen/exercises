@@ -3,14 +3,22 @@ function addTo80(n) {
     return n + 80;
 }
 
-let cache = {};
+// let cache = {}; // bring this inside the function below to avoid global scope
 
 function memoizedAddTo80(n) {
-    if (n in cache) {
-        return cache[n];
-    } else {
-        cache[n] = n + 80;
+    let cache = {}; // the cache gets reset each time so we use closure by returning another function
+    return function(n) {
+        if (n in cache) {
+            return cache[n];
+        } else {
+            console.log('long time');
+            cache[n] = n + 80;
+            return cache[n];
+        }
     }
 }
 
-console.log(addTo80(5));
+const memoized = memoizedAddTo80(); // now returns the result from the function inside the memoizedAddTo80() function
+
+console.log('1', addTo80(5));
+console.log('2', addTo80(6));
