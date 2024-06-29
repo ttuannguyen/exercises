@@ -63,4 +63,5 @@ findFactorialRecursive(5)
 => 5 * 24
 => 120
 
+Key: We need to think in terms of the call stack
 */
