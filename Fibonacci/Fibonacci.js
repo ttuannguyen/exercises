@@ -5,6 +5,8 @@
 // n represents the nth numbe / position in the sequence
 // [0,1,1,2,3,5,8,13,21]
 
+let calculations = 0;
+
 const fibonacci1 = (n) => {
     // Edge case:
     if (n < 2) {
@@ -25,6 +27,7 @@ const fibonacci1 = (n) => {
     return current;
 }
 
+// Approach: Recursion 
 const fibonacci2 = (n) => {
     // Time complexity: O(2^n), exponential time => very bad, not an idea solution
     // Base case
@@ -48,5 +51,27 @@ fibonacci2(4) => Returns 2 + 1 = 3
 fibonacci2(5) => Returns 3 + 2 = 5
 */ 
 
-let answer = fibonacci2(6);
-console.log(answer);
+// Approach: Dynamic programming
+const fibonacci3 = () => {
+    let cache = {};
+    return function fib(n) {
+        calculations++; // just for testing
+        if (n in cache) {
+            return  cache[n];
+        } else {
+            if (n < 2) {
+                return n;
+            } else {
+                cache[n] = fib(n-1) + fib(n-2);
+                return cache[n];
+            }
+        }
+    }
+}
+
+const answer = fibonacci2(6);
+// console.log(answer);
+
+const dp = fibonacci3();
+console.log('DP', dp(10));
+console.log('We did ' + calculations + ' calculations')
