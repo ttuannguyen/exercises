@@ -30,3 +30,9 @@ Solution:
 2. Initial checks: Handle edge cases where x is 0 or 1, as their n-th roots are themselves.
 3. Binary Search: Use binary search to narrow down the possible range for the n-th root.
 4. Iterate until convergence: Continue the search until the approximation error is within the specified tolerance (0.001).
+
+Hints:
+- If your peer doesn’t know how to tackle this question, advise them to try it first on concrete examples. Encourage them to make an intelligent guess, and then bound the error.
+- If you peer is still stuck, ask them how they can use binary search to solve the problem.
+- Also, it is recommended for your peer to look at the graph of the function xn. And while the function may not use any kind of built-in power function, it is OK for your peer to use such functions in the programming and debugging process.
+- Your peer should receive full score for this question only if they manage to find a method that is at least as efficient as the method below, along with explaining how it is correct and analyzing its time and space complexities.
