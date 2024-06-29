@@ -26,6 +26,7 @@ const fibonacci1 = (n) => {
 }
 
 const fibonacci2 = (n) => {
+    // Time complexity: O(2^n), exponential time => very bad, not an idea solution
     // Base case
     if (n < 2) {
         return n;
