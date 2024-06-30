@@ -27,14 +27,30 @@ const findFactorialRecursive = (number) => { // O(n)
 
 }
 
+/* 
+5! = 5*4*3*2*1
+loop in decreasing order until it reaches 1
+*/
+
+
 const findFactorialIterative = (number) => {
-    let answer = 0;
-    return answer;
+    let result = number;
+    for(let i = number-1; i > 0; i--) {
+        // console.log(i)
+        if (i === 1) {
+            return result;
+        } else {
+            result = result * i
+        }
+    }
+    return result;
 }
 
 const number = 4;
 let answer = findFactorialRecursive(number);
-console.log(answer);
+let answer2 = findFactorialIterative(number);
+console.log(answer2);
+
 
 
 /* Learning Notes:
@@ -65,3 +81,7 @@ findFactorialRecursive(5)
 
 Key: We need to think in terms of the call stack
 */
+
+
+
+
