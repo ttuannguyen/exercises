@@ -35,14 +35,22 @@ loop in decreasing order until it reaches 1
 
 const findFactorialIterative = (number) => {
     let result = number;
-    for(let i = number-1; i > 0; i--) {
-        // console.log(i)
-        if (i === 1) {
-            return result;
-        } else {
-            result = result * i
-        }
+    if (number === 2) {
+        answer = 2;
     }
+
+    for (let i = number; i >=2; i--) {
+        result = result * (i-1);
+    }
+
+    // for(let i = number-1; i > 0; i--) {
+    //     // console.log(i)
+    //     if (i === 1) {
+    //         return result;
+    //     } else {
+    //         result = result * i
+    //     }
+    // }
     return result;
 }
 
