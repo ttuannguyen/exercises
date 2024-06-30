@@ -30,6 +30,7 @@ const fibonacci1 = (n) => {
 // Approach: Recursion 
 const fibonacci2 = (n) => {
     // Time complexity: O(2^n), exponential time => very bad, not an idea solution
+    // Space complexity: Needs space initial for the call stack but the funcion calls will eventually be popped off from the stack
     // Base case
     if (n < 2) {
         return n;
@@ -53,9 +54,10 @@ fibonacci2(5) => Returns 3 + 2 = 5
 
 // Approach: Dynamic programming
 const fibonacci3 = () => {
-    let cache = {};
+    let cache = {}; // Trading off space complexity for time complexity
     return function fib(n) {
         calculations++; // just for testing
+        // Time complexity: O(n)
         if (n in cache) {
             return  cache[n];
         } else {

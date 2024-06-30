@@ -3,7 +3,7 @@ function addTo80(n) {
     return n + 80;
 }
 
-// let cache = {}; // bring this inside the function below to avoid global scope
+// let cache = {}; // using a hash table for the cache; brought this inside the function below to avoid global scope
 
 function memoizedAddTo80(n) {
     let cache = {}; // the cache gets reset each time so we use closure by returning another function
