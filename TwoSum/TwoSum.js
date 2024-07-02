@@ -21,9 +21,10 @@ const twoSum = (nums, target) => {
     const result = [];
 
     for (let i = 0; i < nums.length; i++) {
+        // The idea is if we run into a complement that is a number that we already saved, then we've arrived at our solution
         const complement = target - nums[i];
         if (map.hasOwnProperty(complement)) {   
-            result.push(map[complement], i);
+            result.push(map[complement], i); // we can push multiple elements
             return result;
         } else {
             map[nums[i]] = i;
