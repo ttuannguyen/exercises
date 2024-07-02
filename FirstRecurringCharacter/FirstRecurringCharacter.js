@@ -10,7 +10,7 @@
 
 // Method 1: Using hash table
 // Time complexity: O(n) (faster); space complexity: O(n) (downside)
-function firstRecurringCharacter2(input) {
+function firstRecurringCharacter1(input) {
     let map = {};
     // basic for turning an array into a hash table: use a for loop, assign a key and value at each iteration
     for (let i = 0; i < input.length; i++) {
@@ -32,7 +32,6 @@ function firstRecurringCharacter2(input) {
 // Method 2: Using a nested for loop
 // Time complexity: O(n^2)
 function firstRecurringCharacte3(input) {
-
     for (let i = 0; i < input.length; i++) {
         for (let j = i + 1; j < input.length; j++) {
             // console.log(input[i], input[j])
@@ -44,22 +43,32 @@ function firstRecurringCharacte3(input) {
     return undefined;
 }
 
+// Very obscure
+function firstRecurringCharacte5(input) {
+    for (let i = 0; i < input.length; i++) {
+        let index = Math.abs(input[i] - 1);
+        if (arr[index] < 0) {
+            return Math.abs(arr[i]);
+        }
+        arr[index] = -arr[index];
+    }
+    return undefined;
+}
+
+
 const input = [2,1,1,2,3,5,1,2,4];
 const answer = firstRecurringCharacter(input);
 console.log(answer);
 
 // Method 3: Using a Set
-
-function firstRecurringCharacter(input) {
+function firstRecurringCharacter4(input) {
     const seen = new Set();
-    
     for (const char of input) {
         if (seen.has(char)) {
             return char;
         }
         seen.add(char);
     }
-    
     return undefined;
 }
 

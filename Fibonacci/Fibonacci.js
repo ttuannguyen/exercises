@@ -54,7 +54,7 @@ fibonacci2(5) => Returns 3 + 2 = 5
 
 // Approach: Dynamic programming
 const fibonacci3 = () => {
-    let cache = {}; // Trading off space complexity for time complexity
+    let cache = {}; // Using a hash table = trading off space complexity for time complexity
     return function fib(n) {
         calculations++; // just for testing
         // Time complexity: O(n)
