@@ -26,6 +26,27 @@ function bracketMatch(text) {
 
 }
 
+function bracketMatch2(text) {
+    // weird v
+    let diffCounter = 0; // keeps track of the net number of unmatched opening brackets.
+    let ans = 0;  // counts the number of unmatched closing brackets encountered.
+    const n = text.length;
+
+    for (let i = 0; i < n; i++) {
+        if (text[i] === '(') {
+            diffCounter++;
+        } else if (text[i] === ')') {
+            diffCounter--;
+        }
+        if (diffCounter < 0) {
+            diffCounter++;
+            ans++;
+        }
+    }
+
+    return ans + diffCounter;
+}
+
 
 const text = '())('; // => output: 2
 console.log(bracketMatch(text));

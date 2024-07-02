@@ -1,6 +1,3 @@
-const nums = [3,2,4];
-const target = 6;
-
 const twoSum = (nums, target) => {
     
     // Approach 1: nested for loop
@@ -45,6 +42,13 @@ const twoSum = (nums, target) => {
     // }
     // return [];
 }
+
+const twoSum2 = (nums, target) =>{
+
+}
+
+const nums = [3,2,4];
+const target = 6;
 
 let answer = twoSum(nums, target);
 console.log(answer);
