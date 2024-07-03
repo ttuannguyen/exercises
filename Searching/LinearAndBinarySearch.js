@@ -24,18 +24,21 @@ beasts.includes("Godzilla");
 // Storing data in a DS like a tree instead of an array is actually more efficient
 
 const binarySearch = (arr, target) => {
+    // Goal: find the target in a given array
     let low = 0; // low is set to index 0
     let high = arr.length - 1; // // high is set to the last index
 
     while(low <= high) {
-        let mid = Math.floor((low + high) / 2);
+        
+        // operation at each iteration
+        let mid = Math.floor((low + high) / 2); // calculating the index that is the midpoint
 
-        if(arr[mid] === target) {
-            return mid;
-        } else if (arr[mid] < target) {
-            low = mid + 1; // Target is in the right half
-        } else {
-            high = mid - 1; // Target is in the left half
+        if(arr[mid] === target) { // at the midpoint index, is there value equal to target?
+            return mid; 
+        } else if (arr[mid] < target) { // if the value at this index is less than target, the target is in the right half
+            low = mid + 1;  // we move the left-side pointer to the right 
+        } else { // otherwise, target is in the left half
+            high = mid - 1; // we move the right-side pointer to the left
         }
     }
 

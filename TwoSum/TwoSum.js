@@ -43,10 +43,9 @@ const twoSum = (nums, target) => {
     // return [];
 }
 
-const twoSum2 = (nums, target) =>{
+// Note: for sorted array, we can also use the Two Pointer method
 
-}
-
+// Note: input is unsorted
 const nums = [3,2,4];
 const target = 6;
 

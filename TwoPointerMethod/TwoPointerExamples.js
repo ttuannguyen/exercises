@@ -10,7 +10,7 @@ function twoPointerTraverse(arr) {
 
     while (i < j) {
         // Log the values of arr[i] and arr[j] before swapping
-        console.log(`Before swap: arr[${i}] = ${arr[i]}, arr[${j}] = ${arr[j]}`);
+        // console.log(`Before swap: arr[${i}] = ${arr[i]}, arr[${j}] = ${arr[j]}`);
 
         // operation at each iteration 
         let temp = arr[i];
@@ -18,7 +18,7 @@ function twoPointerTraverse(arr) {
         arr[j] = temp;
 
         // Log the values of arr[i] and arr[j] after swapping
-        console.log(`After swap: arr[${i}] = ${arr[i]}, arr[${j}] = ${arr[j]}`);
+        // console.log(`After swap: arr[${i}] = ${arr[i]}, arr[${j}] = ${arr[j]}`);
 
         i++; // increasing left, moving towards the right
         j--; // decreasing right, moving towards the left
