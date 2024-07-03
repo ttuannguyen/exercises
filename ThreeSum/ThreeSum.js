@@ -2,26 +2,32 @@ const threeSum = (array, target) => {
     let result = [];
     array.sort((a, b) => a - b);
 
-    for (let i = 0; i < array.length; i++) {
-        let complement = target - array[i];
-        console.log(complement);
-        
-        let j = i + 1;
-        let k = array.length - i - 1;
+    for (let i = 0; i < array.length - 2; i++) {
+        // condition i < array.length - 2 ensures that there are at least 2 more elements to the right to form a triplet
 
-        while (j < k) {
-            if (array[j] + array[k] === complement) {
-                result.push(array[i], array[j], array[k]);
+        let complement = target - array[i];
+        
+        let left = i + 1;
+        let right = array.length - 1;
+        // note: we should only 
+            // increment left to the sum is less than the complement
+            // decrement right to the sum is more than the complement
+
+        while (left < right) {
+            if (array[left] + array[right] === complement) {
+                result.push(array[i], array[left], array[right]);
                 return result;
+            } else if (array[left] + array[right] < complement) {
+                left++;
+            } else {
+                right--;
             }
-            j++;
-            k--;
         }
     }
     return null;
 }
 
 // Example usage
-const array = [1, 4, 6, 2, 3];
-const target = 9;
-console.log(threeSum(array, target)); // Output: [1, 2, 6]
+const array = [4, 6, 5, 1, 2, 3];
+const target = 12;
+console.log(threeSum(array, target)); 
