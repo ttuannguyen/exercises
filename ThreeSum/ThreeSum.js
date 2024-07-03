@@ -1,5 +1,7 @@
-const threeSum = (array, target) => {
+const threeSum1 = (array, target) => {
     let result = [];
+    
+    // Sort the array
     array.sort((a, b) => a - b);
 
     for (let i = 0; i < array.length - 2; i++) {
@@ -12,7 +14,6 @@ const threeSum = (array, target) => {
         // note: we should only 
             // increment left to the sum is less than the complement
             // decrement right to the sum is more than the complement
-
         while (left < right) {
             if (array[left] + array[right] === complement) {
                 result.push(array[i], array[left], array[right]);
@@ -27,7 +28,35 @@ const threeSum = (array, target) => {
     return null;
 }
 
+
+// Approach: basically the same as above, we're just using a sum var instead of complement
+function threeSum2(arr, target) {
+    // Sort the array
+    arr.sort((a, b) => a - b);
+
+    // Iterate through the array
+    for (let i = 0; i < arr.length - 2; i++) {
+        let left = i + 1;
+        let right = arr.length - 1;
+
+        while (left < right) {
+            let sum = arr[i] + arr[left] + arr[right];
+
+            if (sum === target) {
+                return [arr[i], arr[left], arr[right]];
+            } else if (sum < target) {
+                left++;
+            } else {
+                right--;
+            }
+        }
+    }
+    return null;
+}
+
+
+
 // Example usage
 const array = [4, 6, 5, 1, 2, 3];
 const target = 12;
-console.log(threeSum(array, target)); 
+console.log(threeSum2(array, target)); 
