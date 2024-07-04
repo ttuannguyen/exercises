@@ -31,10 +31,8 @@ const threeSum1 = (array, target) => {
 
 // Approach: basically the same as above, we're just using a sum var instead of complement
 function threeSum2(arr, target) {
-    // Sort the array
     arr.sort((a, b) => a - b);
-
-    // Iterate through the array
+    
     for (let i = 0; i < arr.length - 2; i++) {
         let left = i + 1;
         let right = arr.length - 1;
