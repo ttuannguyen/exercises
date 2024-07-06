@@ -1,0 +1,1 @@
+Binary search can be applied if there is only one point in time where a condition switches from false to true (or vice versa). 

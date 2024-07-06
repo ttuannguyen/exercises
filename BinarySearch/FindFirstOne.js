@@ -7,6 +7,7 @@ In this problem, we want to find the first index of the array that is a 1. If no
 
 
 // Approach: This is a classic binary search problem
+// Time complexity: O(log(n))
 function findFirstOne(arr) {
     let n = arr.length;
 
