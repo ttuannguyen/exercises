@@ -23,7 +23,7 @@ function findFirstOne(arr) {
     let lo = 0;
     let hi = n - 1;
 
-    while(lo + 1 < hi) { // loop invariant: array[lo] = 0, array[hi] = 1
+    while(lo + 1 < hi) { // loop invariants: array[lo] = 0, array[hi] = 1
         // re: the above condition
         // when lo + 1 = hi => lo & hi are adjacent indices
         // thus, hi is the index where we find the first 1, and bc it has a 0 immediately before 1
