@@ -10,7 +10,7 @@
 // Return a new array with those names
 
 function maxProfit1(prices) {
-
+    // Time complexity: O(n)
     const cities = Object.keys(prices);
     
     if (cities.length === 0 || cities.length === 1) {
@@ -19,12 +19,12 @@ function maxProfit1(prices) {
 
     let minCity = cities[0]; // pointing to the array of cities
     let maxCity = cities[0];
-
     let minPrice = prices[minCity]; // pointing to the element in the object 
     let maxPrice = prices[maxCity];
 
     // Iterate through the dictionary to find min/max prices and their respective cities
-    for (const city in prices) {
+    for (const city in prices) { // O(n)
+        console.log("Before: ", city, prices[city], "minPrice: " + minPrice, "maxPrice: " + maxPrice)
         if (prices[city] < minPrice) {
             minPrice = prices[city];
             minCity = city;
@@ -33,6 +33,7 @@ function maxProfit1(prices) {
             maxPrice = prices[city];
             maxCity = city;
         }
+        console.log("After: ", "minPrice: " + minPrice, "maxPrice: " + maxPrice)
     }
     // for (let i = 1; i < cities.length; i++) {
     //     const city = cities[i];
@@ -55,6 +56,40 @@ function maxProfit1(prices) {
 
 }
 
+function maxProfit2(prices) {
+    if (!prices || Object.keys(prices).length === 0) {
+        return null;
+    }
+
+    let minCity = null;
+    let maxCity = null;
+    let minPrice = Infinity; // Infinity: Represents a value larger than any other number.
+    let maxPrice = -Infinity; // -Infinity: Represents a value smaller than any other number.
+
+    for (let city in prices) {
+        if (prices.hasOwnProperty(city)) {
+            let price = prices[city];
+            if (price < minPrice) {
+                minPrice = price;
+                minCity = city;
+            }
+            if (price > maxPrice) {
+                maxPrice = price;
+                maxCity = city;
+            }
+        }
+    }
+
+    // Check if there is no profit opportunity
+    if (minPrice === maxPrice) {
+        return null;
+    }
+
+    return [minCity, maxCity];
+}
+
+
+// Brute force: trying to use built-in methods
 // function maxProfit(prices) {
 //     if (Object.keys(prices).length === 0 || Object.keys(prices).length === 1) {
 //         return null;
