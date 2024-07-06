@@ -53,7 +53,8 @@ function validateIPAddress2(ip) {
 
     for (let i = 0; i < stringArray.length; i++) {
         // Check if each segment is a valid number
-        if (!/^\d+$/.test(stringArray[i])) {
+        // Technique: use regular expression (/^\d+$/) to check if each segment is purely numerical
+        if (!/^\d+$/.test(stringArray[i])) { 
             return false;
         }
 
