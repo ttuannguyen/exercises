@@ -1,14 +1,6 @@
 // maximize profit: find 2 cities with the largest diff in prices (i.e. highest and lowest)
 // output: array containing city names (keys)
 
-
-// Brute force approach:
-// Break into 2 problems: Find the lowest price and highest price 
-// Turn obj into an arr
-// Sort the arr, find max and min value
-// Look up the city of the max and min value
-// Return a new array with those names
-
 function maxProfit1(prices) {
     // Time complexity: O(n)
     const cities = Object.keys(prices);
@@ -90,6 +82,12 @@ function maxProfit2(prices) {
 
 
 // Brute force: trying to use built-in methods
+// Break into 2 problems: Find the lowest price and highest price 
+// Turn obj into an arr
+// Sort the arr, find max and min value
+// Look up the city of the max and min value
+// Return a new array with those names
+
 // function maxProfit(prices) {
 //     if (Object.keys(prices).length === 0 || Object.keys(prices).length === 1) {
 //         return null;
