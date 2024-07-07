@@ -9,26 +9,32 @@ function reverseWords(arr) {
     console.log(arr);
 
     // Reverse each word in the reversed array
-    let start = 0; 
-    let end = -1;
-
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i] !== '  ') {
-            end++
-        } else {
-            // console.log(start, end);
-            reverseHelper(arr, start, end);
-            end = end + 2
-            start = end;
-            i++;
+    let start = 0;
+    for (let i = 0; i <= arr.length; i++) {
+        if (i === arr.length || arr[i] === ' ') { // we can combine 2 conditionals like this if we prefer
+            reverseHelper(arr, start, i - 1);
+            start = i + 1;
         }
     }
 
-    reverseHelper(arr, start, arr.length - 1)
-
-    console.log(arr)
-
-
+    return arr;
+    
+    // This is flawed; something seems finicky about the condition
+    // let start = 0; 
+    // let end = -1;
+    // for (let i = 0; i < arr.length; i++) {
+    //     if (arr[i] !== '  ') {
+    //         end++
+    //     } else {
+    //         // console.log(start, end);
+    //         reverseHelper(arr, start, end);
+    //         end = end + 2
+    //         start = end;
+    //         i++;
+    //     }
+    // }
+    // // Reverse the remainder of the array
+    // reverseHelper(arr, start, arr.length - 1)
 }
 
 // Helper function using the 2-pointer technique 
@@ -42,7 +48,6 @@ function reverseHelper(arr, start, end) {
         start++;
         end--;
     }
-    return arr;
 }
   
 // debug your code below
