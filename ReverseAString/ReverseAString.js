@@ -1,5 +1,6 @@
 // Approach 1: stack data structure
 // Overall time complexity: O(n)
+// Make a stack, use .push(), and .pop() method
 function reverse(str) {
     // Create a stack in the form of an empty arr
     let stack = []; // O(1)
@@ -31,20 +32,23 @@ function reverse2(str) {
 }
 
 // Approach 3: 2-pointers technique
+// Overall time complexity: O(n)
 function reverse3(str) {
+    // since strings are not mutable in JS, we need to turn it into an arr
+    let arr = str.split(''); // O(n)
     let start = 0; 
     let end = str.length-1;
 
-    console.log(str[start]);
-
-    while (start < end) {
-        let tmp = str[start];
-        str[start] = str[end];
-        str[end] = tmp;
+    while (start < end) { // O(n)
+        let tmp = arr[start];
+        arr[start] = arr[end];
+        arr[end] = tmp;
         
         start++;
         end--;
     }
+
+    return arr.join(''); // O(n)
 }
 
 
