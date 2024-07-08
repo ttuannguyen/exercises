@@ -1,5 +1,3 @@
-let nums = [1,1,2]; 
-
 const removeDuplicates = (nums) => {
     // Note: we need to maintain the in-place approach; thus, we can't use Set
     if (nums.length === 0) return 0;
@@ -25,6 +23,6 @@ const removeDuplicates = (nums) => {
 
 }
 
+let nums = [1,1,2]; 
 const answer = removeDuplicates(nums);
-
 // console.log(answer);

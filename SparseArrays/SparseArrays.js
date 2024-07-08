@@ -1,6 +1,5 @@
-const strings = ['aba', 'baba', 'aba', 'xzxb'];
-const queries = ['aba', 'xzxb', 'ab'];
-
+// Approach: brute force; nested for loop
+// Time complexity: O(n^2)
 function matchingStrings(strings, queries) {
 
     let map = {};
@@ -33,5 +32,31 @@ function matchingStrings(strings, queries) {
     return result;
     
 }
+
+// Approach: optimized solution with separate for loops
+// Time complexity: O(n)
+function matchingStrings2(strings, queries) {
+    // Create a map to store the counts of each string
+    let stringCounts = {};
+    for (let i = 0; i < strings.length; i++) {
+        if (stringCounts[strings[i]]) {
+            stringCounts[strings[i]]++;
+        } else {
+            stringCounts[strings[i]] = 1;
+        }
+    }
+
+    // Create the result array by looking up the counts for each query
+    let result = [];
+    for (let i = 0; i < queries.length; i++) {
+        result.push(stringCounts[queries[i]] || 0);
+    }
+
+    return result;
+}
+
+
+const strings = ['aba', 'baba', 'aba', 'xzxb'];
+const queries = ['aba', 'xzxb', 'ab'];
 
 matchingStrings(strings, queries);
