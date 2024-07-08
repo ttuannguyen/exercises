@@ -51,5 +51,30 @@ function bracketMatch2(text) {
 }
 
 
+function bracketMatch3(text) {
+    let stack = [];
+    let closingBracket = 0;
+
+    for (const char in text) {
+        console.log(text[char]);
+        if (text[char] === '(') {
+            stack.push('(');
+        } else {
+            if (stack.length !== 0) {
+                stack.pop();
+            } else {
+                closingBracket++;
+            }
+        }
+    }
+
+    console.log(stack);
+    console.log(closingBracket);
+
+    return stack.length + closingBracket;
+
+
+}
+
 const text = '())('; // => output: 2
-console.log(bracketMatch(text));
+console.log(bracketMatch3(text));
