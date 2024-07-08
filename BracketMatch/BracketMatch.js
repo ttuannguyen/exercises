@@ -5,6 +5,7 @@
 // notice regarding prefix rule, unmatched open bracket can be negated   
 // but if close bracket is at the start, it will always need a match 
 
+// Approach: counter-based technique
 function bracketMatch(text) {
 
     let openBrackets = 0; // to track unmatched open brackets
@@ -17,7 +18,7 @@ function bracketMatch(text) {
             if (openBrackets > 0) {
                 openBrackets--;
             } else {
-                closeBrackets++; // close bracket that starts by itself will always need a match
+                closeBrackets++; // closing bracket that starts by itself will always need a match
             }
         }
     }
@@ -27,7 +28,6 @@ function bracketMatch(text) {
 }
 
 function bracketMatch2(text) {
-    // weird v
     let diffCounter = 0; // keeps track of the net number of unmatched opening brackets.
     let ans = 0;  // counts the number of unmatched closing brackets encountered.
     const n = text.length;
@@ -38,13 +38,16 @@ function bracketMatch2(text) {
         } else if (text[i] === ')') {
             diffCounter--;
         }
+        // If diffCounter becomes negative, it means there's an unmatched closing bracket. 
+        // Increment diffCounter to reset it to zero (as if adding an opening bracket to match this closing bracket) 
+        // Increment ans to count this unmatched closing bracket.
         if (diffCounter < 0) {
             diffCounter++;
             ans++;
         }
     }
-
-    return ans + diffCounter;
+    
+    return ans + diffCounter; // diffCounter = unmatched opening & ans = unmatched closing
 }
 
 

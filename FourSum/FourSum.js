@@ -7,7 +7,7 @@ function fourSum(arr, target) {
         for (let j = i + 1; j < arr.length - 2; j++) {
             let complement = target - arr[i] - arr[j];
 
-            let left = i + 1;
+            let left = j + 1;
             let right = arr.length-1;
 
             while (left < right) {

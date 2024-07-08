@@ -16,9 +16,15 @@ function moveZerosToEnd(arr) {
     return arr;
 }
 
-// Approach 2: two-pointer 
-// Side note: useful technique for efficiently working with sorted arrays; in this case it's not sorted but it also works well
+// Approach 2: two-pointer techniquw
+// Side note: normally a useful technique for efficiently working with sorted arrays
+// in this case it's not sorted but it also works well, we just need to move in the direction towards 1 end
 // Time complexity: O(1 + n + n) => O(1 + 2n) => O(n)
+
+// [0, 1, 0, 3, 12] // given OG arr
+//  L  R 
+// [0, 1, 0, 3, 12]
+
 function moveZerosToEnd2(arr) {
     let nonZeroIndex = 0; // O(1)
 
