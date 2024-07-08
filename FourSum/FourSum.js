@@ -1,16 +1,16 @@
 // Approach 1: Using nested loops and 2-pointer technique
 // Time complexity: O(n^3)
 function fourSum(arr, target) {
-    arr.sort((a, b) => a - b);
+    arr.sort((a, b) => a - b); // O(nlogn)
 
-    for (let i = 0; i < arr.length - 3; i++) {
-        for (let j = i + 1; j < arr.length - 2; j++) {
+    for (let i = 0; i < arr.length - 3; i++) { // O(n)
+        for (let j = i + 1; j < arr.length - 2; j++) { // O(n)
             let complement = target - arr[i] - arr[j];
 
             let left = j + 1;
             let right = arr.length-1;
 
-            while (left < right) {
+            while (left < right) { // O(n)
                 if (arr[left] + arr[right] === complement) {
                     return [arr[i], arr[j], arr[left], arr[right]];
                 } else if (arr[left] + arr[right] < complement) {
@@ -35,9 +35,22 @@ function fourSum(arr, target) {
     // Put a condition to ensure indices are in increasing order to avoid overlap
 
 function fourSum2(arr, target) {
+    let map = new Map();
+    let size = arr.length;
+
+    // Add key-value pairs
+
+    for (let i = 0; i < size - 1; i++) {
+        for (let j = i + 1; j < size; j++) {
+            let sum = arr[i] + arr[j];
+            map.set(sum, [arr[i], arr[j]])
+        }
+    }
+
+    console.log(map);
 
 }
 
 const arr = [2, 7, 4, 0, 9, 5, 1, 3];
 const target = 20;
-console.log(fourSum(arr, target));
+console.log(fourSum2(arr, target));
