@@ -28,7 +28,13 @@ function findFirstOne(arr) {
         // when lo + 1 = hi => lo & hi are adjacent indices
         // thus, hi is the index where we find the first 1, and bc it has a 0 immediately before 1
         // // think: finding the place where arr switches from 0 to 1 
-        let mid = Math.floor((lo + hi) / 2);
+        
+        let mid = Math.floor((lo + hi) / 2); 
+        // Language specific
+        // Use Math.floor() to ensure mid is an integer and is correctly calculated
+        // Integer Division: (lo + hi) / 2 can result in a floating-point number if (lo + hi) is odd
+        // Rounding Down: Using Math.floor((lo + hi) / 2) ensures that any fractional part of the result is discarded, rounding the value down to the nearest integer. 
+    
         if (arr[mid] === 0) {
             lo = mid;
         } else {
