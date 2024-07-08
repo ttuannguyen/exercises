@@ -5,7 +5,7 @@
 // notice regarding prefix rule, unmatched open bracket can be negated   
 // but if close bracket is at the start, it will always need a match 
 
-// Approach: counter-based technique
+// Approach 1: counter-based technique
 function bracketMatch(text) {
 
     let openBrackets = 0; // to track unmatched open brackets
@@ -51,6 +51,7 @@ function bracketMatch2(text) {
 }
 
 
+// Approach 2: Using stack 
 function bracketMatch3(text) {
     let stack = [];
     let closingBracket = 0;
@@ -60,7 +61,7 @@ function bracketMatch3(text) {
         if (text[char] === '(') {
             stack.push('(');
         } else {
-            if (stack.length !== 0) {
+            if (stack.length > 0) {
                 stack.pop();
             } else {
                 closingBracket++;
