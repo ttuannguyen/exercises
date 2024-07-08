@@ -29,6 +29,8 @@ function lowerBound(array, x) {
         hi = mid; 
      }
     }
+    // Through the loop we're maintaining the above loop invariant 
+    // Thus, when the loop terminates, 'hi' is the index such that array[hi] >= X
     return hi;
     
 }
