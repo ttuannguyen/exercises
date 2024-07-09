@@ -1,6 +1,9 @@
 // Best solution 
 function mostFrequentWord(paragraph, banned) {
     // Convert the paragraph to lowercase and replace punctuation with spaces
+    // The regular expression /[!?',;.]/g is used to match and replace certain punctuation characters in a string
+        // Square Brackets []: Denote a character class, which matches any one of the characters inside the brackets.
+        // Global Flag g: Ensures that the regular expression will match all instances of the specified characters in the string, not just the first occurrence.
     let sanitizedParagraph = paragraph.toLowerCase().replace(/[!?',;.]/g, ' ');
 
     // Split the paragraph into words

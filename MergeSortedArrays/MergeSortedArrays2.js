@@ -2,36 +2,51 @@
 // Approach: Using 2-pointer technique
 // Practice: Thinking of how the pointers traverse
 
-const left = [ 1, 2, 5, 6, 44, 99 ];
-const right = [ 0, 4, 63, 87, 283 ];
+function merge() {
+    let result = [];
+    let i = 0;
+    let j = 0;
 
-let result = [];
-let i = 0;
-let j = 0;
+    while (i < left.length && j < right.length) { // loop runs as long as neither pointer has reached the end of its respective array
+        if (left[i] < right[j]) { 
+            result.push(left[i]);
+            i++; 
+        } else {
+            result.push(right[j]);
+            j++;
+        }
+    }
 
-while (i < left.length && j < right.length) { // loop runs as long as neither pointer has reached the end of its respective array
-    if (left[i] < right[j]) { 
+    // If there are remaining elements in the left array
+    if (i < left.length) {
         result.push(left[i]);
-        i++; 
-    } else {
+        j++;
+    }
+
+    // If there are remaining elements in the left array
+    if (j < right.length) {
         result.push(right[j]);
         j++;
     }
+
+    return result;
+
+    /* 
+    Total Space Complexity:
+        Let n be the length of the left array.
+        Let m be the length of the right array.
+        The size of the result array will be n+m.
+        Thus, the space complexity of the merge function, including the space used by the result array, is O(n + m).
+    */
 }
 
-// If there are remaining elements in the left array
-if (i < left.length) {
-    result.push(left[i]);
-    j++;
-}
+const left = [ 1, 2, 5, 6, 44, 99 ];
+const right = [ 0, 4, 63, 87, 283 ];
+merge(left, right);
 
-// If there are remaining elements in the left array
-if (j < right.length) {
-    result.push(right[j]);
-    j++;
-}
 
-console.log(result);
+
+
 
 
 // Note: In this case it is very ineffective to use the nested for loop; 
