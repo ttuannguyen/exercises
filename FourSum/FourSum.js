@@ -35,16 +35,21 @@ function fourSum(arr, target) {
     // Put a condition to ensure indices are in increasing order to avoid overlap
 
 function fourSum2(arr, target) {
+    let n = arr.length;
     let map = new Map();
-    let size = arr.length;
 
     // Add key-value pairs
-
-    for (let i = 0; i < size - 1; i++) {
-        for (let j = i + 1; j < size; j++) {
-            let sum = arr[i] + arr[j];
-            map.set(sum, [arr[i], arr[j]])
+    for (let i = 0; i < n - 1; i++) {
+        for (let j = i + 1; j < n; j++) {
+            const sum = arr[i] + arr[j];
+            if (!map.has(sum)) {
+                map.set(sum, [i, j])
+            }
         }
+    }
+
+    for (let i = 0; i < n - 1; i++) {
+        
     }
 
     console.log(map);
