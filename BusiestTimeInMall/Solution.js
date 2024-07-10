@@ -12,7 +12,7 @@ function findBusiestPeriod1(data) {
         } else {
             peopleCount -= data[i][1];  
         }
-        map[data[i][0]] = peopleCount;
+        map[data[i][0]] = peopleCount; // essentially building a set with keys and values
     }
     
     let max = 0;
