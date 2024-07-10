@@ -2,10 +2,13 @@
 // Time complexity: O(n^3)
 // Space complexity: O(1)
 function fourSum(arr, target) {
-    arr.sort((a, b) => a - b); // O(nlogn)
+    let n = arr.length;
+    arr.sort((a, b) => a - b); // O(n log n)
 
-    for (let i = 0; i < arr.length - 3; i++) { // O(n)
-        for (let j = i + 1; j < arr.length - 2; j++) { // O(n)
+    for (let i = 0; i < n - 3; i++) { // O(n) 
+        // n - 3: to ensure there are at least 3 elements left after i
+        for (let j = i + 1; j < n - 2; j++) { // O(n)
+            // n - 2: to ensure there are at least 2 elements left after j
             let complement = target - arr[i] - arr[j];
 
             let left = j + 1;
