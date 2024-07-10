@@ -52,6 +52,7 @@ function fourSum2(arr, target) {
     }
 
     arr.sort((a, b) => a - b);
+    console.log(arr);
 
     let map = new Map(); // Hash map to store pairs: O(n^2) space complexity
 

@@ -55,6 +55,8 @@ function validateIPAddress2(ip) {
         // Check if each segment is a valid number
         // Technique: use regular expression (/^\d+$/) to check if each segment is purely numerical
         if (!/^\d+$/.test(stringArray[i])) { 
+            // /^\d+$/ matches strings that consist entirely of one or more digits
+            // .test() method is used to test for a match in a string
             return false;
         }
 
