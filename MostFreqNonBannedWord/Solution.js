@@ -4,17 +4,20 @@ function find2(paragraph, banned) {
     // The regular expression /[!?',;.]/g is used to match and replace certain punctuation characters in a string
         // Square Brackets []: Denote a character class, which matches any one of the characters inside the brackets.
         // Global Flag g: Ensures that the regular expression will match all instances of the specified characters in the string, not just the first occurrence.
-    let sanitizedParagraph = paragraph.toLowerCase().replace(/[!?',;.]/g, ' '); // O(n)
+    // Time & space complexity summary: time: O(n), space: O(n + b)
+
+    let sanitizedParagraph = paragraph.toLowerCase().replace(/[!?',;.]/g, ' '); // Time: O(n), Space: O(n)
 
     // Split the paragraph into words
-    let words = sanitizedParagraph.split(/\s+/); // O(n)
+    let words = sanitizedParagraph.split(/\s+/); // Time: O(n), Space: O(m)
 
     // Create a set for banned words for O(1) lookups
-    let bannedSet = new Set(banned); // O(b)
+    // If the array contains unique words already we can bypass this
+    let bannedSet = new Set(banned); // Time: O(b), Space: O(b)
 
     // Create a map to count the frequency of each word
     let wordCount = new Map(); 
-    for (let word of words) { // O(m)
+    for (let word of words) { // Time: O(m), Space: O(u), where u is the number of unique words in paragraph
         if (!bannedSet.has(word) && word !== '') {
             wordCount.set(word, (wordCount.get(word) || 0) + 1);
         }
@@ -35,7 +38,7 @@ function find2(paragraph, banned) {
     // Find the word with the highest frequency
     let mostFrequent = '';
     let maxCount = 0;
-    for (let [word, count] of wordCount) { // O(m)
+    for (let [word, count] of wordCount) { // Time: O(m)
         if (count > maxCount) {
             maxCount = count;
             mostFrequent = word;
