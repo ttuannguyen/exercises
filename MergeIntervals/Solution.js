@@ -4,8 +4,10 @@
 // arr2[0] === arr1[1]
 // returning 2nd number => need to compare arr1[1] vs arr2[2]
 
+// Approach 2: Dynamically build the result array with a loop and added conditions
 function mergeIntervals2(intervals) {
     // Note: if the input is not aleady sorted, we should ahead and sort it
+    // intervals.sort((a, b) => a - b);
     
     let n = intervals.length;
     if (n === 0) return [];
@@ -31,7 +33,7 @@ function mergeIntervals2(intervals) {
 
 
 
-// 1st attempt - brute force
+// Approach 1: 1st attempt - brute force
 // Thought process:
 // Mark something as used 
 // We should still push elements in order, just that when we get to "used", we need to push the merged array
