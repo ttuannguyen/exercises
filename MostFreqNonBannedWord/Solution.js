@@ -12,7 +12,6 @@ function find2(paragraph, banned) {
     let words = sanitizedParagraph.split(/\s+/); // Time: O(n), Space: O(m)
 
     // Create a set for banned words for O(1) lookups
-    // If the array contains unique words already we can bypass this
     let bannedSet = new Set(banned); // Time: O(b), Space: O(b)
 
     // Create a map to count the frequency of each word
