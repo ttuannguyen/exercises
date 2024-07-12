@@ -26,20 +26,26 @@ function identifyAdjacent(s, k) {
 
     for (let char in s) {
         // if stack's top = current character 
-        if (stack.length !== 0 && stack[-1][0] === char) {
-            stack[-1][1] += 1;
+        if (stack.length !== 0 && stack[stack.length-1][0] === s[char]) {
+            stack[stack.length-1][1] += 1;
 
-            if (stack[-1][1] === k) {
+            if (stack[stack.length-1][1] === k) {
                 stack.pop();
             }
         } else {
-            stack.push([char, 1])
+            stack.push([s[char], 1])
         }
-
     }
+    // console.log(stack);
 
+    // Important technique to know
+    let result = '';
 
-    return s;
+    for (let i = 0; i < stack.length; i++) {
+        console.log(stack[i])
+    }
+    
+    // return s;
 
 }
 
