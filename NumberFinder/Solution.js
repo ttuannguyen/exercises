@@ -1,21 +1,19 @@
 function findFirst(array, num) {
     let n = array.length;   
-    console.log(n);
     
+    // Edge cases
     if (n === 0) {
         return -1;
     }
-
-    if (array[0] === num) {
+    if (n === 1) {
         return 0;
     }
     
     let left = 0;
     let right = n - 1;
 
-    while (left <= right) {
+    while (left <= right) { // O(log n)
         let mid = Math.floor((left + right) / 2);
-
         if (array[mid] === num) {
             return mid;
         } else if (array[mid] < num) {
@@ -24,7 +22,6 @@ function findFirst(array, num) {
             right = mid - 1; // We adjust the high pointer to mid - 1 to search in the left half of the array. This excludes the right half, including the middle element.
         }
     }
-
     return -1;
 }
 
