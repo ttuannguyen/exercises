@@ -8,6 +8,7 @@
 // output: -1 # since no index in arr satisfies arr[i] == i.
 
 // Approach: binary search
+// Time complexity: O(log n)
 function indexEqualsValueSearch2(arr) {
     if(arr.length === 0) {
         return -1;
@@ -32,6 +33,7 @@ function indexEqualsValueSearch2(arr) {
     return -1;
 }
 // Approach: brute force
+// Time complexity: O(n)
 function indexEqualsValueSearch1(arr) {
     for (let i = 0; i < arr.length; i++) { //O(n)
         if(arr[i] === i) {
