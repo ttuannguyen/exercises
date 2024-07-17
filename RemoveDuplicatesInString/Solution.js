@@ -38,16 +38,20 @@ function identifyAdjacent(s, k) {
     }
     // console.log(stack);
 
-    // Important technique to know
+    // Important technique to know to replace the nested loop
     let result = '';
 
     for (let i = 0; i < stack.length; i++) {
-        console.log(stack[i])
+        for (let j = 0; j < stack[i][1]; j++) {
+            result += stack[i][0];
+        }
     }
+
+    console.log(result);
     
     // return s;
 
 }
 
 // debug your code below
-console.log(identifyAdjacent("deeedbbcccbdaa", 3));
+console.log(identifyAdjacent("pbbcggttciiippooaais", 2));
