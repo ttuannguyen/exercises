@@ -1,3 +1,8 @@
+// Approach: 
+function getDifferentNumber(arr) {
+    //
+}
+
 // Approach: Brute force
 function getDifferentNumber(arr) {
     let sortedArr = arr.sort();
@@ -14,6 +19,8 @@ function getDifferentNumber(arr) {
             return i;
         }
     }
+
+    return arr.length;
     
 }
   
