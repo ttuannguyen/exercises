@@ -11,7 +11,7 @@ note: linked lists are null terminated
 
 Time complexity:
 Prepend O(1)
-Apprend O(1)
+Append O(1)
 Lookup O(n)
 Insert O(n)
 Delete O(n)
