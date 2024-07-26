@@ -1,3 +1,11 @@
+// To make our code DRY
+class Node {
+    constructor(value) {
+        this.value = value,
+        this.next = null
+    }
+}
+
 class LinkedList {
     constructor(value) {
         this.head = {
@@ -8,10 +16,11 @@ class LinkedList {
         this.length = 1;
     }
     append(value) {
-        const newNode = {
-            value: value,
-            next: null
-        }
+        let newNode = new Node(value);
+        // const newNode = {
+        //     value: value,
+        //     next: null
+        // }
         this.tail.next = newNode;
         this.tail = newNode;
         this.length++;
@@ -26,8 +35,8 @@ class LinkedList {
         this.head = newNode;
         this.length++;
         return this;
-
     }
+
 }
 
 let myLinkedList = new LinkedList(10);
