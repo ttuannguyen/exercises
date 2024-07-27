@@ -10,6 +10,18 @@ function spiralCopy(inputMatrix) {
             console.log(inputMatrix[i][j])
         }
     }
+
+    let numRows = inputMatrix.length;
+    let numCols = inputMatrix[0].length;
+
+    let topRow = 0;
+    let bottomRow = numRows- 1; 
+    let leftCol = 0;
+    let rightCol = numCols - 1;
+    
+    let result = [];
+
+
 }
   
 // debug your code below
