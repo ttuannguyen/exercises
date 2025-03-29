@@ -52,6 +52,7 @@ class Result {
         max += arr.get(i);
     }
 
+    System.out.println("This is the answer:");
     System.out.print(min + " " + max);
 
     }
