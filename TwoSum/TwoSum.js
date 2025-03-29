@@ -1,24 +1,33 @@
 const twoSum = (nums, target) => {
-  // Approach: brute force
   let result = [];
 
+  // Approach 1: brute force
+  // for (let i = 0; i < nums.length; i++) {
+  //   for (let j = i + 1; j < nums.length; j++) {
+  //     if (nums[i] + nums[j] === target) {
+  //       result.push(i, j);
+  //     }
+  //   }
+  // }
+
+
+  // Approach 2: hash table
+  let map = {};
+
   for (let i = 0; i < nums.length; i++) {
-    for (let j = i + 1; j < nums.length; j++) {
-      if (nums[i] + nums[j] === target) {
-        result.push(i, j);
-      }
+    let complement = target - nums[i];
+    if (complement in map) {
+      result.push(map[complement], i);      
+    } else {
+      map[nums[i]] = i; // note: remember bracket notation
     }
   }
-
-
-  // Approach: hash table
-  
 
   return result;
 };
 
-const nums = [3, 2, 4];
-const target = 6;
+const nums = [2,7,11,15];
+const target = 9;
 
 let answer = twoSum(nums, target);
 console.log(answer);
