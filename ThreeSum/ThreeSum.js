@@ -1,60 +1,40 @@
-const threeSum1 = (array, target) => {
-    let result = [];
+const threeSum = (arr, target) => {
+  arr.sort((a, b) => a - b); // remember syntax for sorting
+
+  let result = [];
+
+  for (let i = 0; i < arr.length - 2; i++) {
+    // condition to note: 'arr.length - 2' ensures there are at least 2 remaining elements in the array to form a triplet
     
-    // Sort the array
-    array.sort((a, b) => a - b);
+    // set up the 2 pointers
+    let left = i + 1; // error fixed
+    let right = arr.length - 1;
 
-    for (let i = 0; i < array.length - 2; i++) {
-        // condition i < array.length - 2 ensures that there are at least 2 more elements to the right to form a triplet
+    // establish the complement
+    const complement = target - arr[i];
 
-        let complement = target - array[i];
-        
-        let left = i + 1;
-        let right = array.length - 1;
-        // note: we should only 
-            // increment left to the sum is less than the complement
-            // decrement right to the sum is more than the complement
-        while (left < right) {
-            if (array[left] + array[right] === complement) {
-                result.push(array[i], array[left], array[right]);
-                return result;
-            } else if (array[left] + array[right] < complement) {
-                left++;
-            } else {
-                right--;
-            }
-        }
+    while (left < right) {
+      if (arr[left] + arr[right] === complement) {
+        result.push(arr[i], arr[left], arr[right]);
+        return result;
+      } else if (arr[left] + arr[right] < complement) {
+        left++;
+      } else {
+        right--; // error fixed
+      }
     }
-    return null;
-}
+  }
 
-
-// Approach: basically the same as above, we're just using a sum var instead of complement
-function threeSum2(arr, target) {
-    arr.sort((a, b) => a - b);
-    
-    for (let i = 0; i < arr.length - 2; i++) {
-        let left = i + 1;
-        let right = arr.length - 1;
-
-        while (left < right) {
-            let sum = arr[i] + arr[left] + arr[right];
-
-            if (sum === target) {
-                return [arr[i], arr[left], arr[right]];
-            } else if (sum < target) {
-                left++;
-            } else {
-                right--;
-            }
-        }
-    }
-    return null;
-}
-
-
+  return null;
+};
 
 // Example usage
-const array = [4, 6, 5, 1, 2, 3];
-const target = 12;
-console.log(threeSum2(array, target)); 
+const arr = [1, 4, 6, 2, 3];
+const target = 9;
+console.log(threeSum(arr, target));
+
+
+// Things to note:
+// (1) Ensure proper implementation of JS .sort() method
+// (2) Ensure proper setup of the pointers
+// (3) Ensure proper moving of the poiters
