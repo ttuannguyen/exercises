@@ -17,7 +17,7 @@ function mostCommonWords2(text) {
         if (b[1] !== a[1]) { // comparing frequencies of the two words
             return b[1] - a[1];
         } else { // if the frequencies are the same, compare the words alphabetically
-            // localeCompare is a string method that compares two strings according to the sort order of the current locale.
+            // localeCompare is a string method that compares two strings according to the sort order of the current locale
             return a[0].localeCompare(b[0]);
         }
     })
@@ -57,3 +57,12 @@ function mostCommonWords(text) {
   
   // debug your code below
   console.log(mostCommonWords2("It was the best of times, it was the worst of times."));
+
+  // Learning notes:
+  // Regex to remember:
+  // .replace(/[.,;!'"()]/g, '')
+  // .split(/\s+/)
+  // Setting a Map: .set(word, (wordFreq.get(word) || 0) + 1)
+  // Array.from(wordFreq.entries()) => converts a Map object into an array of key-value
+  // .sort((a, b) => { b - a}) // for descending order (vs 'a - b' for ascending order
+  // .localeCompare method =>  compares 2 strings in the current locale and returns a number indicating their sort order
