@@ -1,8 +1,15 @@
 // Approach 3: 2 passes (using 2 separate for loops)
-function productExceptSelf2(nums) {
+function productExceptSelf3(nums) {
     if (nums.length === 0) {
         return [];
     }
+
+    let length = nums.length;
+    let result = new Array(length).fill(1); // Initialize result array with ones
+
+    console.log(result);
+
+
 }
 
 // Approach 2: Flawed bc we need to deal with running into division by 0
@@ -53,5 +60,6 @@ function productExceptSelf1(nums) {
 }
 
 // debug your code below
-console.log(productExceptSelf1([1, 2, 3, 4]));
-console.log(productExceptSelf2([1, 2, 3, 4]));
+// console.log(productExceptSelf1([1, 2, 3, 4]));
+// console.log(productExceptSelf2([1, 2, 3, 4]));
+console.log(productExceptSelf3([1, 2, 3, 4]));
