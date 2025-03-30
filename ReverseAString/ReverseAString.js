@@ -14,6 +14,10 @@ function reverse(str) {
     // With the LIFO nature of the stack, we pop the characters off of the stack and effectively reverse the string
     let reversed = '';
     while (stack.length > 0) { // O(n)
+        // Here we don't explicitly use the i-- condition because of how .pop() method works
+        // Each time .pop() is called, stack.length decreases by 1
+        // The loop condition is while (stack.length > 0), so as long as the stack has elements, it will continue iterating
+        
         reversed += stack.pop();
     }
 
