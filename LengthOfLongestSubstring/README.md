@@ -1,3 +1,7 @@
+Problem Statement:
+Use a growing window that expands as long as the condition (no repeating characters) is met. If a repeat is encountered, shrink the window from the left until the condition is satisfied again.
+Example input: s = "abbcab" => output = 3;
+
 
 
 Processing Each Character
