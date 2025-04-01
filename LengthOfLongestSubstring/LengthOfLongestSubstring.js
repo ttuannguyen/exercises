@@ -27,7 +27,19 @@ function lengthOfLongestSubstring(s) {
         } 
         charSet.add(s[right]);
 
+        // we want to store the value of maxLength instead of overriding it at each iteration (if we put maxLength = right - left + 1; inside the while loop"
         maxLength = Math.max(maxLength, right - left + 1);
+
+        // Here's where it fails:
+        // right = 0, left = 0 → "a"  → maxLength = 1
+        // right = 1, left = 0 → "ab" → maxLength = 2
+        // right = 2, left = 0 → "abb" 
+        // → duplicate found, shrinking from left:
+        // left = 1 → "bb"  (not valid yet)
+        // left = 2 → "b" (valid, but now maxLength = 1)
+
+
+
     }
 
     // console.log(charSet);
