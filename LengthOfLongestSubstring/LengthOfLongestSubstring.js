@@ -20,36 +20,20 @@ function lengthOfLongestSubstring(s) {
         while (charSet.has(s[right])) {
             charSet.delete(s[left]);
             left++;
+
+            // 1st pass: remove 'a', move left forward
+            // 2nd pass: // remove 'b'
+            // basically, the loop will keep removing all the characters to the left of the duplicate, and then remove the duplicate itself
         } 
         charSet.add(s[right]);
 
         maxLength = Math.max(maxLength, right - left + 1);
     }
 
-    
-    // for (const right of s) {
-    //     // if (!charSet.has(right)) {
-    //     //     charSet.add(right);
-    //     // } 
-    //     if (charSet.has(right)) {
-    //         charSet.delete(s[left]);
-    //         left++;
-    //     } else {
-    //         charSet.add(right);
-    //     }
-
-    //     maxLength = Math.max(maxLength, right - left + 1);
-    // }
-
-    console.log(charSet);
-
-
+    // console.log(charSet);
     return maxLength;
 
 
 }
 
 console.log(lengthOfLongestSubstring("abbcab")); // Output: 3
-
-//  **     
-// abbcab
